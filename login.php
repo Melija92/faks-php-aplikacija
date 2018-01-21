@@ -31,33 +31,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>dsucic app</title>
+	<title>Login u app</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<style>
-	
-	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
+<div class="container">
+	<div class="jumbotron">
     <div class="row">
         <div class="col-md-6 col-md-offset-3" style="margin-top:50px">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <span class="glyphicon glyphicon-lock"></span> Dobrodošli!</div>
+                    <span class="glyphicon glyphicon-lock"></span> Dobrodošli na dsucic aplikaciju!</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action"login.php">
                     <div class="form-group">
                         <label for="inputEmail3" class="col-sm-3 control-label">
                             Email</label>
                         <div class="col-sm-9">
-                            <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Upiši email" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword3" class="col-sm-3 control-label">
-                            Password</label>
+                            Zaporka</label>
                         <div class="col-sm-9">
-                            <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" required>
+                            <input type="password" name="password" class="form-control" placeholder="Upiši zaporku" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -77,6 +78,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

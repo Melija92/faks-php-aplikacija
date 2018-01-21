@@ -1,7 +1,5 @@
 <?php
-/**
- * contains database credentials
- */
+
 try {
 
     $dbHost = 'localhost';
