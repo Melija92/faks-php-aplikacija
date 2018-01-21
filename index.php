@@ -1,46 +1,44 @@
 <?php
-	session_start();
-	require_once 'db.php';
-	if(!isset($_SESSION['user'])){
+	require_once 'head.php';
+
+	if(!isset($_SESSION['korisnik'])){
 		header('Location: login.php');
 	}
-	
-	$sql = 'SELECT id, Naziv, Velicina, BrojStanovnika FROM gradovi';
+	echo $head;
+
+	$sql = 'SELECT id, naziv, kratica, velicina, zupan FROM zupanije';
 	$stmt = $db->prepare($sql);
 	$stmt->execute();
-	$gradovi = $stmt->fetchAll();
+	$zupanije = $stmt->fetchAll();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>dsucic Aplikacija</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-	<h3>Tablica unesenih gradova</h3>
-
-	<div class="container content-wrapper">
-		<table class="table table-striped">
-			<thead>
-			<tr>
-				<th></th>
-				<th>Naziv</th>
-				<th>Veličina</th>
-				<th>Broj stanovnika</th>
-			</tr>
-			</thead>
-			<tbody>
-			<?php foreach($gradovi as $grad): ?>
-			<tr>
-				<th scope="row"><?= $grad['id'] ?></th>
-				<td><?= $grad['Naziv'] ?></td>
-				<td><?= $grad['Velicina'] ?></td>
-				<td><?= $grad['BrojStanovnika'] ?></td>
-			</tr>
-			<?php endforeach; ?>
-			</tbody>
-		</table>
-	</div>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <div class="container content-wrapper">
+	<a href="add.php"><button type="button" class="btn btn-default">Dodaj županiju</button></a>
+        <table class="table table-bordered" style="margin-top: 30px;">
+            <thead>
+                <tr>
+                    <th>Broj</th>
+                    <th>Naziv</th>
+                    <th>Kratica</th>
+                    <th>Veličina</th>
+                    <th>Župan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach($zupanije as $zupanija): ?>
+                <tr>
+                    <th scope="row"><?= $zupanija['id'] ?></th>
+                    <td><?= $zupanija['naziv'] ?></td>
+                    <td><?= $zupanija['kratica'] ?></td>
+                    <td><?= $zupanija['velicina'] ?></td>
+                    <td><?= $zupanija['zupan'] ?></td>
+                    <td>
+					<center>
+                        <a href="edit.php?id=<?= $zupanija['id'] ?>"><img class="img-thumbnail" src='editing.png' /></a>
+                        <a href="delete.php?id=<?= $zupanija['id'] ?>"><img class="img-thumbnail" src='brisanje.png' /></a>
+                    </center>
+					</td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>

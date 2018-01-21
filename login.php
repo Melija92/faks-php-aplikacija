@@ -2,7 +2,7 @@
 	session_start();
 	require_once 'db.php';
 	
-	if(isset($_SESSION['user'])){
+	if(isset($_SESSION['korisnik'])){
 		header('Location: index.php');
 	}
 	
@@ -10,18 +10,18 @@
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-	$sql = 'SELECT id, email, password, first_name, last_name, is_active FROM users WHERE email = :email';
+	$sql = 'SELECT id, email, zaporka, ime, prezime FROM korisnici WHERE email = :email';
 	$stmt = $db->prepare($sql);
 	$stmt->bindParam(':email', $email);
 	$stmt->execute();
 	
-	$user = $stmt->fetch();
+	$korisnik = $stmt->fetch();
 	
-	if(!password_verify($password, $user['password'])){
+	if(!password_verify($password, $korisnik['zaporka'])){
 		die('Korisnicko ime ili lozinka nije ispravno uneseno');
 	}
 	
-	$_SESSION['user'] = $user;
+	$_SESSION['korisnik'] = $korisnik;
 	
 	header('Location:index.php');
 	die;
