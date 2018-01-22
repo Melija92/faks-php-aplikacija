@@ -1,5 +1,7 @@
 <?php
-require_once 'head.php';
+	require_once 'head.php';
+	require_once 'header.php';
+	echo $header;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	
@@ -31,7 +33,9 @@ echo $head;
         <div class="col-md-6 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form class="form" role="form" method="POST" action="add.php" autocomplete="off">
+			<div style="margin-bottom: 30px;" ></div>
+			<a href="index.php"><button type="button" class="btn btn-info">Povratak na listu</button></a>
+              <form style="margin-top: 30px;" class="form" role="form" method="POST" action="add.php" autocomplete="off">
                 <div class="form-group">
                 <input type="hidden" name="id" />
                   <label for="naziv">Naziv</label>
@@ -49,7 +53,7 @@ echo $head;
                   <label for="last-name">Župan</label>
                   <input type="text" name="zupan" class="form-control form-control-lg rounded-0">
                 </div>
-                <button type="submit" class="btn btn-success float-right">Save</button>
+                <button type="submit" class="btn btn-default btn-lg">Spremi</button>
               </form>
             </div>
           </div>

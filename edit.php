@@ -1,5 +1,7 @@
 <?php
-require_once 'head.php';
+	require_once 'head.php';
+	require_once 'header.php';
+	echo $header;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 	
@@ -46,7 +48,9 @@ $zupanija = $stmt->fetch();
         <div class="col-md-6 mx-auto">
           <div class="card">
             <div class="card-body">
-              <form class="form" role="form" method="POST" action="edit.php" autocomplete="off">
+			<div style="margin-bottom: 30px;" ></div>
+			<a href="index.php"><button type="button" class="btn btn-info">Povratak</button></a>
+              <form style="margin-top: 30px;" class="form" role="form" method="POST" action="edit.php" autocomplete="off">
                 <div class="form-group">
                 <input type="hidden" value="<?= $zupanija['id'] ?>" name="id" />
                   <label for="naziv">Naziv</label>
@@ -57,14 +61,14 @@ $zupanija = $stmt->fetch();
                   <input type="text" name="kratica" class="form-control form-control-lg rounded-0" value="<?= $zupanija['kratica'] ?>">
                 </div>
                 <div class="form-group">
-                  <label for="velicina">Velicina</label>
+                  <label for="velicina">Veličina</label>
                   <input type="text" name="velicina" value="<?= $zupanija['velicina'] ?>" class="form-control form-control-lg rounded-0">
                 </div>
                 <div class="form-group">
                   <label for="zupan">Župan</label>
                   <input type="text" name="zupan" value="<?= $zupanija['zupan'] ?>" class="form-control form-control-lg rounded-0">
                 </div>
-                <button type="submit" class="btn btn-success float-right">Save</button>
+                <button type="submit" class="btn btn-success float-right btn-lg">Spremi</button>
               </form>
             </div>
           </div>
